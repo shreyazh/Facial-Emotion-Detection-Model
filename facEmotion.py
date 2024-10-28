@@ -19,18 +19,23 @@ if uploaded_image is not None:
     img = Image.open(uploaded_image)
     img_np = np.array(img)
     
-    # displaying the uploaded image
-    st.image(img, caption="Uploaded Image", use_column_width=True)
 
-    # running DeepFace analysis for emotion detection
-    try:
-        result = DeepFace.analyze(img_np, actions=['emotion'])
+    # creating two columns for displaying the image and results side-by-side
+    col1, col2 = st.columns([1, 1])
 
-        # showing emotion analysis results
+    # displaying the uploaded image with a reduced width in the first column
+    with col1:
+        st.image(img, caption="Uploaded Image", width=300)
+
+    # running DeepFace analysis for emotion detection & displaying results in second column
+    with col2:
         st.write("Emotion Analysis Result:")
-        for emotion, score in result[0]['emotion'].items():
-            st.write(f"{emotion}: {score:.2f}%")
-    
-    except Exception as e:
-        st.error("Error analyzing image. Please try a different image.")
+        try:
+            result = DeepFace.analyze(img_np, actions=['emotion'])
 
+            # displaying each emotion with its probability
+            for emotion, score in result[0]['emotion'].items():
+                st.write(f"{emotion}: {score:.2f}%")
+        
+        except Exception as e:
+            st.error("Error analyzing image. Please try a different image.")
