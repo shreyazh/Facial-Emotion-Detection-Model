@@ -1,0 +1,6 @@
+deepface
+streamlit
+openCV
+matplotlib
+numpy 
+pillow
