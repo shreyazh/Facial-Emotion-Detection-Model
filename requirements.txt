@@ -1,6 +1,6 @@
-streamlit
-deepface
-opencv-python>=4.5.0
-matplotlib
-pillow
-numpy
+streamlit==1.40.2
+deepface==0.0.93
+opencv-python==4.8.0.74
+matplotlib>=3.4.0
+pillow>=9.0.0
+numpy>=1.19.0
