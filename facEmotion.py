@@ -1,7 +1,6 @@
 # dependencies
 import streamlit as st
 from deepface import DeepFace
-import cv2
 import matplotlib.pyplot as plt
 from PIL import Image
 import numpy as np
