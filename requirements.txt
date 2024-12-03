@@ -1,6 +1,6 @@
 streamlit
 deepface
-openCV
+opencv-python>=4.5.0
 matplotlib
 pillow
 numpy
